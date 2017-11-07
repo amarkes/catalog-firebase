@@ -1,14 +1,33 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button navPush="LoginPage">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Shop Firebase
     </ion-title>
+    <ion-buttons end>
+      <button ion-button navPush="AddProductPage">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-list-header center>
+      Products
+    </ion-list-header>
+    <ion-item *ngFor="let item of products$ | async">
+      <ion-thumbnail item-start>
+        <img [src]="item.image">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+      <p>{{item.description}}</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Product</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="form" (ngSubmit)="addForm()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Quantity</ion-label>
+        <ion-input type="number" formControlName="quantity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Price</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-item>
+        <span ion-text color="danger" block text-center padding-top padding-bottom (click)="selectImage()">Select an image</span>
+        <input type="hidden" name="image" formControlName="image" [(ngModel)]="filmImage">
+        <img [src]="filmImage">
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!form.valid">Submit</button>
+    </ion-list>
+
+  </form>
+
+</ion-content>
